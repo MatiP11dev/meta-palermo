@@ -1,0 +1,250 @@
+diff --git a/PlutoSDR_Registration.cpp b/PlutoSDR_Registration.cpp
+index 8ff7580..1084ea9 100644
+--- a/PlutoSDR_Registration.cpp
++++ b/PlutoSDR_Registration.cpp
+@@ -8,144 +8,44 @@
+ #endif
+ 
+ static std::vector<SoapySDR::Kwargs> results;
++
+ static std::vector<SoapySDR::Kwargs> find_PlutoSDR(const SoapySDR::Kwargs &args) {
+ 
+ 	if (!results.empty())
+ 		return results;
+ 
+-	ssize_t ret = 0;
++	const char* uri="local:";
+ 	iio_context *ctx = nullptr;
+-	iio_scan_context *scan_ctx;
+-	iio_context_info **info;
+ 	SoapySDR::Kwargs options;
++	options["device"] = "PlutoSDR";
+ 
+-	// Backends can error, scan each one individually
+-	// The filtered "usb" backend is available starting from Libiio 0.24
+-	std::vector<std::string> backends = {"local", "usb=0456:b673", "ip"};
+-	for (std::vector<std::string>::iterator it = backends.begin(); it != backends.end(); it++) {
+-
+-		// This whole block of nastiness doesn't always work...seems a local iio instance can interfere with a hostname
+-		options.clear();
+-
+-		if (*it == "usb=0456:b673") {
+-#ifdef HAS_LIBUSB1
+-			// Abort early if no known ADALM-Pluto USB VID:PID (0456:b673) is found,
+-			// that way we won't block USB access for other drivers' enumeration on Libiio before 0.24.
+-			libusb_context *usb_ctx = nullptr;
+-			int r = libusb_init(&usb_ctx);
+-			if (r < 0) {
+-				SoapySDR_logf(SOAPY_SDR_WARNING, "libusb init error (%d)\n", r);
+-			}
+-			else {
+-				// This is what libusb_open_device_with_vid_pid(usb_ctx, 0x0456, 0xb673) does,
+-				// but without actually opening a device.
+-				struct libusb_device **devs;
+-				// this is cached in libusb, we won't block USB access for other drivers
+-				r = libusb_get_device_list(usb_ctx, &devs);
+-				if (r < 0) {
+-					SoapySDR_logf(SOAPY_SDR_WARNING, "libusb get device list error (%d)\n", r);
+-					continue; // iio scan context will most likely fail too?
+-				}
+-
+-				bool found = false;
+-				struct libusb_device *dev;
+-				size_t i = 0;
+-				while ((dev = devs[i++]) != NULL) {
+-					struct libusb_device_descriptor desc;
+-					// this is cached in libusb, we won't block USB access for other drivers
+-					r = libusb_get_device_descriptor(dev, &desc);
+-					if (r < 0) {
+-						break;
+-					}
+-					if (desc.idVendor == 0x0456 && desc.idProduct == 0xb673) {
+-						found = true;
+-						break;
+-					}
+-				}
+-
+-				libusb_free_device_list(devs, 1);
+-
+-				if (found) {
+-					SoapySDR_logf(SOAPY_SDR_DEBUG, "ADALM-Pluto VID:PID found");
+-				}
+-				else {
+-					SoapySDR_logf(SOAPY_SDR_DEBUG, "No ADALM-Pluto VID:PID found");
+-					continue;
+-				}
+-			}
+-#endif
+-			// Defer to other drivers, prevent a race condition on USB enumeration with Libiio before 0.24,
+-			// the value of 500ms has not been confirmed and might be 50ms to 1s possibly.
+-			std::this_thread::sleep_for(std::chrono::milliseconds(500));
+-		}
+-
+-		scan_ctx = iio_create_scan_context(it->c_str(), 0);
+-		if (scan_ctx == nullptr) {
+-			SoapySDR_logf(SOAPY_SDR_WARNING, "Unable to setup %s scan\n", it->c_str());
+-			continue;
+-		}
+-
+-		info = nullptr;
+-		ret = iio_scan_context_get_info_list(scan_ctx, &info);
+-		if (ret < 0) {
+-			SoapySDR_logf(SOAPY_SDR_WARNING, "Unable to scan %s: %li\n", it->c_str(), (long)ret);
+-			iio_context_info_list_free(info);
+-			iio_scan_context_destroy(scan_ctx);
+-			continue;
+-		}
+-
+-		options["device"] = "PlutoSDR";
+-		if (ret == 0) {
+-			iio_context_info_list_free(info);
+-			iio_scan_context_destroy(scan_ctx);
+-
+-			//no devices discovered, the user must specify a hostname
+-			if (args.count("hostname") == 0) continue;
+-
+-			//try to connect at the specified hostname
+-			ctx = iio_create_network_context(args.at("hostname").c_str());
+-			if (ctx == nullptr) continue; //failed to connect
+-			options["hostname"] = args.at("hostname");
+-
+-			std::ostringstream label_str;
+-			label_str << options["device"] << " #0 " << options["hostname"];
+-			options["label"] = label_str.str();
+-
+-			results.push_back(options);
+-			if (ctx != nullptr) iio_context_destroy(ctx);
+-
+-		} else {
+-			for (int i = 0; i < ret; i++) {
+-				ctx = iio_create_context_from_uri(iio_context_info_get_uri(info[i]));
+-				if (ctx != nullptr) {
+-					options["uri"] = std::string(iio_context_info_get_uri(info[i]));
+-
+-					// check if discovered libiio context can be a PlutoSDR (and not some other sensor),
+-          // it must contain "ad9361-phy", "cf-ad9361-lpc" and "cf-ad9361-dds-core-lpc" devices
+-					iio_device *dev = iio_context_find_device(ctx, "ad9361-phy");
+-					iio_device *rx_dev = iio_context_find_device(ctx, "cf-ad9361-lpc");
+-					iio_device *tx_dev = iio_context_find_device(ctx, "cf-ad9361-dds-core-lpc");
+-
+-					if (dev != nullptr && rx_dev != nullptr && tx_dev != nullptr) {
+-						// if uri is specified in kwargs, discovered uri must match
+-						if (args.count("uri") == 0 || options["uri"] == args.at("uri")) {
+-							std::ostringstream label_str;
+-							label_str << options["device"] << " #" << i << " " << options["uri"];
+-							options["label"] = label_str.str();
+-
+-							results.push_back(options);
+-						}
+-					}
++	SoapySDR_logf(SOAPY_SDR_CRITICAL,"find_PlutoSDR(...) will try to find context \"local:\"\n");
++	ctx = iio_create_context_from_uri(uri);
++	if (ctx==nullptr) {
++		SoapySDR_logf(SOAPY_SDR_ERROR,"find_PlutoSDR(...) could not create contxt for uri=\"local:\"\n");
++		return results;
++	}
+ 
+-					if (ctx != nullptr) iio_context_destroy(ctx);
+-				}
++	options["uri"] = std::string(uri);
++	SoapySDR_logf(SOAPY_SDR_CRITICAL,"found\n");
++
++	// check if discovered libiio context can be a PlutoSDR (and not some other sensor),
++  	// it must contain "ad9361-phy" (config), "cf-ad9361-lpc" (rx) and "cf-ad9361-dds-core-lpc" (tx) devices
++	iio_device *dev = iio_context_find_device(ctx, "ad9361-phy-a");
++	iio_device *rx_dev = iio_context_find_device(ctx, "cf-ad9361-lpc-a");
++	iio_device *tx_dev = iio_context_find_device(ctx, "cf-ad9361-dds-core-lpc-a");
++	if (dev == nullptr || rx_dev == nullptr || tx_dev == nullptr) {
++		SoapySDR_logf(SOAPY_SDR_ERROR,"could not find some of the following devices in pluto: ad9361-phy cf-ad9361-lpc(RX) cf-ad9361-dds-core-lpc(TX)\n");
++	} else {
++		SoapySDR_logf(SOAPY_SDR_CRITICAL,"pluto devices ad9361-phy cf-ad9361-lpc(RX) cf-ad9361-dds-core-lpc(TX) found\n");
++		std::ostringstream label_str;
++		label_str << options["device"] << " " << options["uri"];
++		options["label"] = label_str.str();
++		results.push_back(options);
++	}
+ 
+-			}
+-			iio_context_info_list_free(info);
+-			iio_scan_context_destroy(scan_ctx);
+-		}
++	iio_context_destroy(ctx);
+ 
+-	}
+ 	return results;
+ }
+ 
+diff --git a/PlutoSDR_Settings.cpp b/PlutoSDR_Settings.cpp
+index 5db2749..d368635 100644
+--- a/PlutoSDR_Settings.cpp
++++ b/PlutoSDR_Settings.cpp
+@@ -30,36 +30,27 @@ SoapyPlutoSDR::SoapyPlutoSDR( const SoapySDR::Kwargs &args ):
+ 
+ 	gainMode = false;
+ 
+-	if (args.count("label") != 0)
+-		SoapySDR_logf( SOAPY_SDR_INFO, "Opening label %s...", args.at("label").c_str());
+-
+-	if(ctx == nullptr)
+-	{
+-	  if(args.count("uri") != 0) {
+-		  SoapySDR_logf( SOAPY_SDR_INFO, "Opening URI %s...", args.at("uri").c_str());
+-		  ctx = iio_create_context_from_uri(args.at("uri").c_str());
+-
+-	  }else if(args.count("hostname")!=0){
+-		  SoapySDR_logf( SOAPY_SDR_INFO, "Opening hostname %s...", args.at("hostname").c_str());
+-		  ctx = iio_create_network_context(args.at("hostname").c_str());
+-	  }else{
+-		  SoapySDR_logf( SOAPY_SDR_INFO, "Opening default context...");
+-		  ctx = iio_create_default_context();
+-	  }
++	if(ctx == nullptr) {
++	  //SoapySDR_logf( SOAPY_SDR_CRITICAL, "Opening URI local: ...");
++	  SoapySDR_logf( SOAPY_SDR_CRITICAL, "Opening URI ip:192.168.1.10 ...");
++	  ctx = iio_create_context_from_uri("local:");
++	  // ctx = iio_create_context_from_uri("ip:192.168.1.10");
+ 	}
+ 
+ 	if (ctx == nullptr) {
+-		SoapySDR_logf(SOAPY_SDR_ERROR, "no device context found.");
+-		throw std::runtime_error("no device context found");
++		const char* q="could not open uri=ip:192.168.1.10 context";
++		SoapySDR_logf(SOAPY_SDR_ERROR,q);
++		throw std::runtime_error(q);
+ 	}
+ 
+-	dev = iio_context_find_device(ctx, "ad9361-phy");
+-	rx_dev = iio_context_find_device(ctx, "cf-ad9361-lpc");
+-	tx_dev = iio_context_find_device(ctx, "cf-ad9361-dds-core-lpc");
++	dev = iio_context_find_device(ctx, "ad9361-phy-a");
++	rx_dev = iio_context_find_device(ctx, "cf-ad9361-lpc-a");
++	tx_dev = iio_context_find_device(ctx, "cf-ad9361-dds-core-lpc-a");
+ 
+ 	if (dev == nullptr || rx_dev == nullptr || tx_dev == nullptr) {
+-		SoapySDR_logf(SOAPY_SDR_ERROR, "no device found in this context.");
+-		throw std::runtime_error("no device found in this context");
++		const char* q="no device found in local: context";
++		SoapySDR_logf(SOAPY_SDR_ERROR,q);
++		throw std::runtime_error(q);
+ 	}
+ 
+ 	this->setAntenna(SOAPY_SDR_RX, 0, "A_BALANCED");
+@@ -928,18 +919,6 @@ void SoapyPlutoSDR::handle_timestamp_every_arg(const SoapySDR::Kwargs & args, bo
+ 			throw std::runtime_error("invalid value for timestamp_every, expected number");
+ 		}
+ 
+-		// Check timestamp every is only asserted with usb_direct for now
+-		if (new_timestamp_every > 0) {
+-			#ifdef HAS_LIBUSB1
+-			if (!this->usb_sdr_dev && -1 == this->ip_sdr_dev_control) {
+-			#else
+-			if (-1 == this->ip_sdr_dev_control) {
+-			#endif
+-				SoapySDR_logf(SOAPY_SDR_ERROR, "timestamp_every only currently supported with direct mode");
+-				throw std::runtime_error("timestamp_every only currently supported with direct mode");
+-			}
+-		}
+-
+ 		// Set appropriate timestamp_every
+ 		if (tx) {
+ 			timestamp_every_tx = new_timestamp_every;

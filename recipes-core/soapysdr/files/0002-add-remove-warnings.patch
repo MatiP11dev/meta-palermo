@@ -1,0 +1,14 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8f75adb..cfa4d74 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -77,6 +77,8 @@ if(LibUSB_FOUND)
+     add_compile_options($<$<CXX_COMPILER_ID:GNU,Clang,AppleClang>:-Wno-zero-length-array>)
+ endif()
+ 
++add_compile_options(-Wall -Wextra -pedantic -Wno-unused-parameter)
++
+ 
+ SOAPY_SDR_MODULE_UTIL(
+     TARGET PlutoSDRSupport
+

@@ -1,0 +1,17 @@
+diff --git a/PlutoSDR_TXStreamerIPGadget.cpp b/PlutoSDR_TXStreamerIPGadget.cpp
+index f97f38e..88a95f0 100644
+--- a/PlutoSDR_TXStreamerIPGadget.cpp
++++ b/PlutoSDR_TXStreamerIPGadget.cpp
+@@ -428,9 +428,9 @@ void tx_streamer_ip_gadget::thread_func(uint32_t curr_enabled_channels, uint32_t
+ 	}
+ 
+ 	// Free buffers
+-	delete arr_mmsg_hdrs;
+-	delete arr_iovs;
+-	delete arr_pkt_hdrs;
++	free(arr_mmsg_hdrs);
++	free(arr_iovs);
++	free(arr_pkt_hdrs);
+ 
+ 	// Stop stream
+ 	cmd.hdr.magic = SDR_IP_GADGET_MAGIC;

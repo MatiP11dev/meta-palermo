@@ -1,0 +1,57 @@
+diff --git a/PlutoSDR_RXStreamerIPGadget.cpp b/PlutoSDR_RXStreamerIPGadget.cpp
+index 2cb5227..a7e4cc5 100644
+--- a/PlutoSDR_RXStreamerIPGadget.cpp
++++ b/PlutoSDR_RXStreamerIPGadget.cpp
+@@ -134,7 +134,7 @@ size_t rx_streamer_ip_gadget::recv(void * const *buffs,
+ 	}
+ 
+ 	// Work out how many items to copy
+-	size_t items = std::min(curr_buffer_samples_remaining, numElems);
++	size_t items = std::min<size_t>(curr_buffer_samples_remaining, numElems);
+ 
+ 	if (direct_copy) {
+ 		// optimize for single RX, 2 channel (I/Q), same endianess direct copy
+diff --git a/PlutoSDR_Streaming.cpp b/PlutoSDR_Streaming.cpp
+index fccb8d7..8ab32b6 100644
+--- a/PlutoSDR_Streaming.cpp
++++ b/PlutoSDR_Streaming.cpp
+@@ -437,7 +437,7 @@ size_t rx_streamer_iio::recv(void * const *buffs,
+ 		byte_offset = 0;
+ 	}
+ 
+-	size_t items = std::min(items_in_buffer,numElems);
++	size_t items = std::min<size_t>(items_in_buffer,numElems);
+ 
+ 	ptrdiff_t buf_step = iio_buffer_step(buf);
+ 
+@@ -689,7 +689,7 @@ int tx_streamer_iio::send(	const void * const *buffs,
+         return 0;
+     }
+ 
+-	size_t items = std::min(buf_size - items_in_buf, numElems);
++	size_t items = std::min<size_t>(buf_size - items_in_buf, numElems);
+ 
+ 	int16_t src = 0;
+ 	int16_t const *src_ptr = &src;
+diff --git a/PlutoSDR_TXStreamerIPGadget.cpp b/PlutoSDR_TXStreamerIPGadget.cpp
+index f97f38e..0c690c9 100644
+--- a/PlutoSDR_TXStreamerIPGadget.cpp
++++ b/PlutoSDR_TXStreamerIPGadget.cpp
+@@ -126,7 +126,7 @@ int tx_streamer_ip_gadget::send(const void * const *buffs,
+ 
+ 		// Calculate how many samples to add to buffer
+ 		// No need to reset samples as buffer is zero initialized when created
+-		size_t samples_to_fill = std::min(timestamp_diff, curr_buffer_free_samples);
++		size_t samples_to_fill = std::min<uint64_t>(timestamp_diff, curr_buffer_free_samples);
+ 
+ 		// Increment sample count
+ 		curr_buffer_samples_stored += samples_to_fill;
+@@ -166,7 +166,7 @@ int tx_streamer_ip_gadget::send(const void * const *buffs,
+ 	}
+ 
+ 	// Work out how many items to copy
+-	size_t items = std::min(buffer_size_samples - curr_buffer_samples_stored, numElems);
++	size_t items = std::min<uint32_t>(buffer_size_samples - curr_buffer_samples_stored, numElems);
+ 
+ 	int16_t src = 0;
+ 	int16_t const *src_ptr = &src;

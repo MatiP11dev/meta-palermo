@@ -1,0 +1,10 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8f75adb..07af94e 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+ 
+@@ -104,3 +103,4 @@ configure_file(
+     "${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
+     "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
+     IMMEDIATE @ONLY)
++add_subdirectory(support/test_c/)

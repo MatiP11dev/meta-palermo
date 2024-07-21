@@ -1,0 +1,35 @@
+diff --git a/PlutoSDR_RXStreamerUSBGadget.cpp b/PlutoSDR_RXStreamerUSBGadget.cpp
+index 9d05d92..f2295ff 100644
+--- a/PlutoSDR_RXStreamerUSBGadget.cpp
++++ b/PlutoSDR_RXStreamerUSBGadget.cpp
+@@ -148,7 +148,7 @@ size_t rx_streamer_usb_gadget::recv(void * const *buffs,
+ 	}
+ 
+ 	// Work out how many items to copy
+-	size_t items = std::min(curr_buffer_samples_remaining, numElems);
++	size_t items = std::min<size_t>(curr_buffer_samples_remaining, numElems);
+ 
+ 	if (direct_copy) {
+ 		// optimize for single RX, 2 channel (I/Q), same endianess direct copy
+diff --git a/PlutoSDR_TXStreamerUSBGadget.cpp b/PlutoSDR_TXStreamerUSBGadget.cpp
+index 8c779b9..413240b 100644
+--- a/PlutoSDR_TXStreamerUSBGadget.cpp
++++ b/PlutoSDR_TXStreamerUSBGadget.cpp
+@@ -134,7 +134,7 @@ int tx_streamer_usb_gadget::send(const void * const *buffs,
+ 
+ 		// Calculate how many samples to add to buffer
+ 		// No need to reset samples as buffer is zero initialized when created
+-		size_t samples_to_fill = std::min(timestamp_diff, curr_buffer_free_samples);
++		size_t samples_to_fill = std::min<uint64_t>(timestamp_diff, curr_buffer_free_samples);
+ 
+ 		// Increment sample count
+ 		curr_buffer_samples_stored += samples_to_fill;
+@@ -178,7 +178,7 @@ int tx_streamer_usb_gadget::send(const void * const *buffs,
+ 	}
+ 
+ 	// Work out how many items to copy
+-	size_t items = std::min(buffer_size_samples - curr_buffer_samples_stored, numElems);
++	size_t items = std::min<uint32_t>(buffer_size_samples - curr_buffer_samples_stored, numElems);
+ 
+ 	int16_t src = 0;
+ 	int16_t const *src_ptr = &src;
