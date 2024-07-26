@@ -1,0 +1,20 @@
+diff --git a/support/test_c/test_timestamp_loopback.c b/support/test_c/test_timestamp_loopback.c
+index ab8ef91..516b2c6 100644
+--- a/support/test_c/test_timestamp_loopback.c
++++ b/support/test_c/test_timestamp_loopback.c
+@@ -20,7 +20,7 @@ int main(void)
+     if (0) {
+         SoapySDRKwargs_set(&args, "uri", "usb:");
+     } else {
+-        SoapySDRKwargs_set(&args, "uri", "ip:pluto");
++        SoapySDRKwargs_set(&args, "uri", "local:");
+     }
+     SoapySDRKwargs_set(&args, "direct", "1");
+     SoapySDRKwargs_set(&args, "timestamp_every", "1920");
+@@ -374,4 +374,4 @@ static long long extract_timestamp(uint16_t *rx_buff, size_t buff_size, size_t *
+     // Return timestamp and word offset
+     *inbound_ts_offset = extracted_offset;
+     return extracted_value;
+-}
+\ No newline at end of file
++}
