@@ -1,0 +1,24 @@
+diff --git a/PlutoSDR_Streaming.cpp b/PlutoSDR_Streaming.cpp
+index 82dfbba..3d8a255 100644
+--- a/PlutoSDR_Streaming.cpp
++++ b/PlutoSDR_Streaming.cpp
+@@ -356,7 +357,8 @@ rx_streamer_iio::rx_streamer_iio(const iio_device *_dev, const plutosdrStreamFor
+ 	//default to channel 0, if none were specified
+ 	const std::vector<size_t> &channelIDs = channels.empty() ? std::vector<size_t>{0} : channels;
+ 
+-	for (i = 0; i < channelIDs.size() * 2; i++) {
++	// for (i = 0; i < channelIDs.size() * 2; i++) {  // esto es un bug! le va a pedir que le devuelva un channel con un id mayor al máximo aceptable
++	for (i = 0; i < channelIDs.size(); i++) {
+ 		struct iio_channel *chn = iio_device_get_channel(dev, i);
+ 		iio_channel_enable(chn);
+ 		channel_list.push_back(chn);
+@@ -697,7 +699,8 @@ tx_streamer_iio::tx_streamer_iio(const iio_device *_dev, const plutosdrStreamFor
+ 	//default to channel 0, if none were specified
+ 	const std::vector<size_t> &channelIDs = channels.empty() ? std::vector<size_t>{0} : channels;
+ 
+-	for (i = 0; i < channelIDs.size() * 2; i++) {
++	// for (i = 0; i < channelIDs.size() * 2; i++) {  // esto es un bug! le va a pedir que le devuelva un channel con un id mayor al máximo aceptable
++	for (i = 0; i < channelIDs.size(); i++) {
+ 		iio_channel *chn = iio_device_get_channel(dev, i);
+ 		iio_channel_enable(chn);
+ 		channel_list.push_back(chn);

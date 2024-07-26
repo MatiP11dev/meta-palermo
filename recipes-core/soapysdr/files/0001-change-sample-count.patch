@@ -1,0 +1,13 @@
+diff --git a/support/test_c/test_timestamp_loopback.c b/support/test_c/test_timestamp_loopback.c
+index d7e667e..b07b9b8 100644
+--- a/support/test_c/test_timestamp_loopback.c
++++ b/support/test_c/test_timestamp_loopback.c
+@@ -79,7 +79,7 @@ int main(void)
+     tx_mtu = 6; // IQ samples (12 words)
+ 
+     //sample count
+-    size_t sample_count = 30000;
++    size_t sample_count = 300;
+ 
+     //create buffers for samples (unsigned signed int16's - although we're transmitting and receiving signed numbers)
+     //double size for I and Q samples

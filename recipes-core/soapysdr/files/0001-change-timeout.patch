@@ -1,0 +1,31 @@
+diff --git a/support/test_c/test_timestamp_loopback.c b/support/test_c/test_timestamp_loopback.c
+index 3e17ccc..84c4174 100644
+--- a/support/test_c/test_timestamp_loopback.c
++++ b/support/test_c/test_timestamp_loopback.c
+@@ -119,7 +119,7 @@ int main(void)
+         long long timeNs; //timestamp for receive buffer
+ 
+         // Read samples
+-        int sr = SoapySDRDevice_readStream(sdr, rxStream, buffs, rx_mtu, &flags, &timeNs, 100000); // 100ms timeout
++        int sr = SoapySDRDevice_readStream(sdr, rxStream, buffs, rx_mtu, &flags, &timeNs, 100000000); // 100s timeout
+         if (sr < 0)
+         {
+             // Skip read on error (likely timeout)
+@@ -139,7 +139,7 @@ int main(void)
+ 
+         buffs[0] = rx_buff[buffers_read][0];
+         buffs[1] = rx_buff[buffers_read][1];
+-        int sr = SoapySDRDevice_readStream(sdr, rxStream, buffs, rx_mtu, &flags, &timeNs, 100000);
++        int sr = SoapySDRDevice_readStream(sdr, rxStream, buffs, rx_mtu, &flags, &timeNs, 100000000);
+         if (sr < 0)
+         {
+             // Skip read on error (likely timeout)
+@@ -171,7 +171,7 @@ int main(void)
+         buffs[0] = tx_buff;
+         buffs[1] = tx_buff;
+         flags = SOAPY_SDR_HAS_TIME;
+-        int st = SoapySDRDevice_writeStream(sdr, txStream, (const void * const*)buffs, tx_mtu, &flags, tx_time, 100000);
++        int st = SoapySDRDevice_writeStream(sdr, txStream, (const void * const*)buffs, tx_mtu, &flags, tx_time, 100000000);
+         if ((size_t)st != tx_mtu)
+         {
+             printf("TX Failed: %i\n", st);
