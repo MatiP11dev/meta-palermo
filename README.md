@@ -4,5 +4,5 @@ layer dependencies:
 * meta-python.
 * meta-adi.
 * meta-gomspace.
-* meta-openembedded
-* networking-layer
+* meta-openembedded.
+* networking-layer.
