@@ -6,11 +6,14 @@ SRCREV="271c1b29d0b9a536162c5dbda5a8108ef95a2306"
 
 SRC_URI = "git://github.com/${GITHUB_USER}/SoapyPlutoSDR;branch=${GIT_BRANCH};protocol=https \
            file://0001-fix-compiler-error.patch \ 
-           file://0001-remove-compiler-option.patch \
-           file://0002-fix-compiler-error.patch \
+           file://0002-fix-compiler-error.patc  \
            file://0001-gomspace-context.patch \
            file://0001-timestamp-support.patch \
-           file://0002-timestamp-support.patch"
+           file://0002-timestamp-support.patch \
+           file://0001-local-context-test.patch \
+           file://0001-fix-greenland-bug.patch \
+           file://0001-change-sample-count.patch \
+           file://0001-change-timeout.patch"
 
 
 DEPENDS += "libiio libad9361-iio soapy libusb1"
