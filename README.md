@@ -45,7 +45,7 @@ ejecutar el siguiente comando:
 run update_payload 
 ```
 Una vez ejectuado el comando, ejecute el siguente script que se encuentra
-en /home/usuario/build/tmp/deply/images/nanomind-z7020-zed:
+en ```/home/usuario/build/tmp/deploy/images/nanomind-z7020-zed```:
 ```
 ./flash-dfu -b
 ```
