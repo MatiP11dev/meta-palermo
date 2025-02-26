@@ -1,0 +1,13 @@
+diff --git a/libtools/Makefile b/libtools/Makefile
+index cf84988..cb6c87f 100644
+--- a/libtools/Makefile
++++ b/libtools/Makefile
+@@ -30,7 +30,7 @@ $(OBJDIR):
+ 	mkdir -p $(OBJDIR)
+ 
+ $(OBJDIR)/%.o: src/%.c $(INCLUDES) | $(OBJDIR)
+-	$(CC) -c $(CFLAGS) $< -o $@
++	$(CC) -c $(CFLAGS) $(LDFLAGS)  $< -o $@
+ 
+ ### static library
+ 

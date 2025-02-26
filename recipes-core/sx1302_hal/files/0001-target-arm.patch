@@ -1,0 +1,11 @@
+diff --git a/target.cfg b/target.cfg
+index c55e132..5027c8d 100644
+--- a/target.cfg
++++ b/target.cfg
+@@ -8,3 +8,6 @@ TARGET_DIR=/home/pi/sx1302_hal/bin
+ 
+ # The user to be used by ssh/scp to copy the files on the gateway host
+ TARGET_USR=pi
++PATH=/usr/bin/aarch64-poky-linux
++ARCH=arm
++CROSS_COMPILE=aarch64-poky-linux-

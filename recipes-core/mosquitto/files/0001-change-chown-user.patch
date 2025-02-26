@@ -1,0 +1,16 @@
+diff --git a/service/systemd/mosquitto.service.simple b/service/systemd/mosquitto.service.simple
+index 15ee0d62..ab4cedeb 100644
+--- a/service/systemd/mosquitto.service.simple
++++ b/service/systemd/mosquitto.service.simple
+@@ -9,9 +9,9 @@ ExecStart=/usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+ ExecReload=/bin/kill -HUP $MAINPID
+ Restart=on-failure
+ ExecStartPre=/bin/mkdir -m 740 -p /var/log/mosquitto
+-ExecStartPre=/bin/chown mosquitto:mosquitto /var/log/mosquitto
++ExecStartPre=/bin/chown root:root /var/log/mosquitto
+ ExecStartPre=/bin/mkdir -m 740 -p /run/mosquitto
+-ExecStartPre=/bin/chown mosquitto:mosquitto /run/mosquitto
++ExecStartPre=/bin/chown root:root /run/mosquitto
+ 
+ [Install]
+ WantedBy=multi-user.target

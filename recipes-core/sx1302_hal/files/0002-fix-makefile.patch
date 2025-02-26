@@ -1,0 +1,91 @@
+diff --git a/libloragw/Makefile b/libloragw/Makefile
+index 881442f..4b5d95b 100644
+--- a/libloragw/Makefile
++++ b/libloragw/Makefile
+@@ -93,7 +93,7 @@ inc/config.h: ../VERSION library.cfg
+ ### library module target
+ 
+ $(OBJDIR):
+-	mkdir -p $(OBJDIR)
++	
+ 
+ $(OBJDIR)/%.o: src/%.c $(INCLUDES) inc/config.h | $(OBJDIR)
+ 	$(CC) -c $(CFLAGS) $< -o $@
+diff --git a/libtools/Makefile b/libtools/Makefile
+index cf84988..460f24c 100644
+--- a/libtools/Makefile
++++ b/libtools/Makefile
+@@ -27,7 +27,7 @@ clean:
+ ### library module target
+ 
+ $(OBJDIR):
+-	mkdir -p $(OBJDIR)
++	
+ 
+ $(OBJDIR)/%.o: src/%.c $(INCLUDES) | $(OBJDIR)
+ 	$(CC) -c $(CFLAGS) $< -o $@
+diff --git a/packet_forwarder/Makefile b/packet_forwarder/Makefile
+index 2325a47..d0a1683 100644
+--- a/packet_forwarder/Makefile
++++ b/packet_forwarder/Makefile
+@@ -78,7 +78,7 @@ endif
+ ### Sub-modules compilation
+ 
+ $(OBJDIR):
+-	mkdir -p $(OBJDIR)
++	
+ 
+ $(OBJDIR)/%.o: src/%.c $(INCLUDES) | $(OBJDIR)
+ 	$(CC) -c $(CFLAGS) -I$(LGW_PATH)/inc $< -o $@
+diff --git a/util_boot/Makefile b/util_boot/Makefile
+index 399db85..ec8a64a 100644
+--- a/util_boot/Makefile
++++ b/util_boot/Makefile
+@@ -70,7 +70,7 @@ else
+ endif
+ 
+ $(OBJDIR):
+-	mkdir -p $(OBJDIR)
++
+ 
+ ### Compile main program
+ $(OBJDIR)/$(APP_NAME).o: src/$(APP_NAME).c | $(OBJDIR)
+diff --git a/util_chip_id/Makefile b/util_chip_id/Makefile
+index 50b110c..5740b78 100644
+--- a/util_chip_id/Makefile
++++ b/util_chip_id/Makefile
+@@ -70,7 +70,7 @@ else
+ endif
+ 
+ $(OBJDIR):
+-	mkdir -p $(OBJDIR)
++
+ 
+ ### Compile main program
+ $(OBJDIR)/$(APP_NAME).o: src/$(APP_NAME).c | $(OBJDIR)
+diff --git a/util_net_downlink/Makefile b/util_net_downlink/Makefile
+index 01829d2..d89d9d7 100644
+--- a/util_net_downlink/Makefile
++++ b/util_net_downlink/Makefile
+@@ -70,7 +70,7 @@ else
+ endif
+ 
+ $(OBJDIR):
+-	mkdir -p $(OBJDIR)
++
+ 
+ ### Compile main program
+ $(OBJDIR)/$(APP_NAME).o: src/$(APP_NAME).c | $(OBJDIR)
+diff --git a/util_spectral_scan/Makefile b/util_spectral_scan/Makefile
+index 9322009..8e9e151 100644
+--- a/util_spectral_scan/Makefile
++++ b/util_spectral_scan/Makefile
+@@ -70,7 +70,7 @@ else
+ endif
+ 
+ $(OBJDIR):
+-	mkdir -p $(OBJDIR)
++	
+ 
+ ### Compile main program
+ $(OBJDIR)/$(APP_NAME).o: src/$(APP_NAME).c | $(OBJDIR)
