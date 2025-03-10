@@ -1,0 +1,26 @@
+diff --git a/thread_read.c b/thread_read.c
+index c70aa11..e680e35 100644
+--- a/thread_read.c
++++ b/thread_read.c
+@@ -161,7 +161,7 @@ void *THREAD_READ_Entrypoint(void *args)
+ 	}
+ 
+ 	/* Retrieve RX streaming device */
+-	struct iio_device *iio_dev_rx = iio_context_find_device(iio_ctx, "cf-ad9361-lpc");
++	struct iio_device *iio_dev_rx = iio_context_find_device(iio_ctx, "cf-ad9361-lpc-a");
+ 	if (!iio_dev_rx)
+ 	{
+ 		fprintf(stderr, "Failed to open iio rx dev\n");
+diff --git a/thread_write.c b/thread_write.c
+index 931d146..bb742f2 100644
+--- a/thread_write.c
++++ b/thread_write.c
+@@ -166,7 +166,7 @@ void *THREAD_WRITE_Entrypoint(void *args)
+ 	}
+ 
+ 	/* Retrieve TX streaming device */
+-	struct iio_device *iio_dev_tx = iio_context_find_device(iio_ctx, "cf-ad9361-dds-core-lpc");
++	struct iio_device *iio_dev_tx = iio_context_find_device(iio_ctx, "cf-ad9361-dds-core-lpc-a");
+ 	if (!iio_dev_tx)
+ 	{
+ 		fprintf(stderr, "Failed to open iio tx dev\n");
