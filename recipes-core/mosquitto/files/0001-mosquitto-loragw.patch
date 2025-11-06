@@ -1,0 +1,15 @@
+diff --git a/mosquitto.conf b/mosquitto.conf
+index 10b0406e..6ad7ae36 100644
+--- a/mosquitto.conf
++++ b/mosquitto.conf
+@@ -481,6 +481,10 @@
+ #log_type notice
+ #log_type information
+ 
++pid_file /loragw/run/mosquitto.pid
++log_dest file /loragw/var/lib/mosquitto/mosquitto.log
++persistence true
++persistence_location /loragw/var/lib/mosquitto/
+ 
+ # If set to true, client connection and disconnection messages will be included
+ # in the log.

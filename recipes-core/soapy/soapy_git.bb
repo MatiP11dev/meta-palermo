@@ -4,7 +4,8 @@ LICENSE="BSL-1.0"
 LIC_FILES_CHKSUM = "file://LICENSE_1_0.txt;md5=e4224ccaecb14d942c71d31bef20d78c"
 SRCREV="8c6cb7c5223fad995e355486527589c63aa3b21e"
 
-SRC_URI = "git://github.com/${GITHUB_USER}/SoapySDR;branch=${GIT_BRANCH};protocol=https"
+SRC_URI = "git://github.com/${GITHUB_USER}/SoapySDR;branch=${GIT_BRANCH};protocol=https \
+           file://test_timestamp.c"
 
 
 

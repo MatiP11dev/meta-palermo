@@ -32,4 +32,4 @@ do_compile(){
     cd ${S}
     oe_runmake dev-dependencies
 }
-inherit cargo cargo-update-recipe-crates
+inherit cargo

@@ -15,6 +15,7 @@ SRC_URI[sha256sum] = "02c01e1d72d5c82416a0e6a51e7ba7203a98f00a646ed730e796dfe443
 PR = "r1"
 GO_INSTALL = "${GO_IMPORT}"
 LORA_GATEWAY_BRIDGE_DIR = "/opt/lora-gateway-bridge"
+#DEFAULTTUNE = "armv7athf-neon"
 DEPENDS="libgcc libb64 mosquitto redis postgresql bash"
 RDEPENDS:${PN}="libgcc libb64 mosquitto redis postgresql bash"
 #INSANE_SKIP:${PN} = "ldflags"

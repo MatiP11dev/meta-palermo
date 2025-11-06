@@ -1,0 +1,14 @@
+[Unit]
+Description=ChirpStack open-source LoRaWAN Network Server
+Documentation=https://www.chirpstack.io/
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Group=root
+ExecStart=/loragw/bin/chirpstack -c /loragw/etc/chirpstack/
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

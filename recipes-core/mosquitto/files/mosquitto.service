@@ -1,0 +1,17 @@
+[Unit]
+Description=Mosquitto MQTT Broker
+Documentation=man:mosquitto.conf(5) man:mosquitto(8)
+After=network.target
+Wants=network.target
+
+[Service]
+ExecStart=/loragw/sbin/mosquitto -c /loragw/etc/mosquitto/mosquitto.conf
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+ExecStartPre=/bin/mkdir -m 740 -p /loragw/var/log/mosquitto
+ExecStartPre=/bin/chown root:root /loragw/var/log/mosquitto
+ExecStartPre=/bin/mkdir -m 740 -p /loragw/run/mosquitto
+ExecStartPre=/bin/chown root:root /loragw/run/mosquitto
+
+[Install]
+WantedBy=multi-user.target

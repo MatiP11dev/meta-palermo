@@ -1,0 +1,1 @@
+/loragw/bin/postgres "-D" "/loragw/var/lib/postgresql" "-p" "5432"

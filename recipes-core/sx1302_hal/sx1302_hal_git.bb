@@ -66,22 +66,24 @@ do_compile:prepend() {
     install -m 0755 ${S}/libtools/inc/* ${WORKDIR}/recipe-sysroot/usr/include
     install -m 0755 ${S}/libloragw/inc/* ${WORKDIR}/recipe-sysroot/usr/include
     install -m 0755 ${S}/packet_forwarder/inc/* ${WORKDIR}/recipe-sysroot/usr/include
-    install -m 0755 ${WORKDIR}/sources-unpack/config.h ${WORKDIR}/recipe-sysroot/usr/include       
+    install -m 0755 ${WORKDIR}/config.h ${WORKDIR}/recipe-sysroot/usr/include       
     export CFLAGS="${CFLAGS} -I${STAGING_INCDIR}"
     export CXXFLAGS="${CXXFLAGS} -I${STAGING_INCDIR}"
     echo "INCLUDE_DIR := ${STAGING_INCDIR}" >> ${S}/Makefile
 }
 do_install:append(){
-    install -d ${D}${bindir}
-    install -m 0755 ${S}/libloragw/test_* ${D}${bindir}
-    install -m 0755 ${S}/packet_forwarder/global_conf* ${D}${bindir}
-    install -m 0755 ${S}/packet_forwarder/lora_pkt_fwd ${D}${bindir}
-    install -m 0755 ${S}/util_boot/boot ${D}${bindir}
-    install -m 0755 ${S}/util_chip_id/chip_id ${D}${bindir}
-    install -m 0755 ${S}/util_net_downlink/net_downlink ${D}${bindir}
-    install -m 0755 ${S}/util_spectral_scan/spectral_scan ${D}${bindir}
-    install -m 0755 ${S}/tools/reset_lgw.sh ${D}${bindir}
+    install -d ${D}/loragw/bin
+    install -d ${D}/loragw/etc/lorafwd
+    install -m 0755 ${S}/libloragw/test_* ${D}/loragw/bin
+    install -m 0755 ${S}/packet_forwarder/global_conf* ${D}/loragw/etc/lorafwd
+    install -m 0755 ${S}/packet_forwarder/lora_pkt_fwd ${D}/loragw/bin
+    install -m 0755 ${S}/util_boot/boot ${D}/loragw/bin
+    install -m 0755 ${S}/util_chip_id/chip_id ${D}/loragw/bin
+    install -m 0755 ${S}/util_net_downlink/net_downlink ${D}/loragw/bin
+    install -m 0755 ${S}/util_spectral_scan/spectral_scan ${D}/loragw/bin
+    install -m 0755 ${S}/tools/reset_lgw.sh ${D}/loragw/bin
 }
+FILES:${PN} +="/loragw/bin/* /loragw/etc/lorafwd*"
 TARGET_CC_ARCH += "${LDFLAGS}"
 DEPENDS += "glibc gcc libgcc libb64"
 S = "${WORKDIR}/git"

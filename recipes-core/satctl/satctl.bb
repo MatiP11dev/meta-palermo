@@ -7,7 +7,7 @@ do_compile[nostamp] = "1"
 RDEPENDS:${PN}+= "python3 libsocketcan python3-jinja2 python3-jsonschema gcc"
 S = "${WORKDIR}/satctl-1.0/satlab-satctl-v1.21.0"
 do_configure:append(){
-    cp -r ${WORKDIR}/sources-unpack/satlab-satctl-v1.21.0 ${WORKDIR}/satctl-1.0/
+    #cp -r ${WORKDIR}/sources-unpack/satlab-satctl-v1.21.0 ${WORKDIR}/satctl-1.0/
     #${WORKDIR}/recipe-sysroot-native/usr/bin/python3-native/python3.13 waf distclean configure
 }
 do_compile:prepend(){

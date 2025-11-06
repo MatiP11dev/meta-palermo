@@ -1,0 +1,296 @@
+2022-11-08 14:05:11.646 UTC [1417] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 14:05:11.647 UTC [1417] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 14:05:11.648 UTC [1417] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 14:05:11.655 UTC [1417] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 14:05:11.672 UTC [1418] LOG:  database system was shut down at 2025-07-30 18:29:13 UTC
+2022-11-08 14:05:11.702 UTC [1417] LOG:  database system is ready to accept connections
+2022-11-08 14:05:13.080 UTC [1426] FATAL:  role "chirpstack" does not exist
+2022-11-08 14:07:18.093 UTC [1428] FATAL:  role "chirpstack" does not exist
+2022-11-08 14:08:03.993 UTC [1438] FATAL:  role "chirpstack" does not exist
+2022-11-08 14:11:28.537 UTC [1582] FATAL:  role "chirpstack" does not exist
+2022-11-08 14:11:35.437 UTC [1584] FATAL:  role "chirpstack" does not exist
+2022-11-08 14:11:39.273 UTC [1586] FATAL:  role "chirpstack" does not exist
+2022-11-08 14:12:42.047 UTC [1632] FATAL:  role "root" does not exist
+2022-11-08 14:16:24.019 UTC [1653] FATAL:  role "chirpstack" does not exist
+2022-11-08 14:17:48.264 UTC [1662] ERROR:  role "chirpstack" already exists
+2022-11-08 14:17:48.264 UTC [1662] STATEMENT:  create role chirpstack with login password 'chirpstack';
+2022-11-08 14:17:48.266 UTC [1662] ERROR:  database "chirpstack" already exists
+2022-11-08 14:17:48.266 UTC [1662] STATEMENT:  create database chirpstack with owner chirpstack;
+2022-11-08 14:20:14.778 UTC [1417] LOG:  received fast shutdown request
+2022-11-08 14:20:14.786 UTC [1417] LOG:  aborting any active transactions
+2022-11-08 14:20:14.794 UTC [1417] LOG:  background worker "logical replication launcher" (PID 1424) exited with exit code 1
+2022-11-08 14:20:14.802 UTC [1419] LOG:  shutting down
+2022-11-08 14:20:15.022 UTC [1417] LOG:  database system is shut down
+2022-11-08 14:20:15.214 UTC [1681] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 14:20:15.215 UTC [1681] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 14:20:15.215 UTC [1681] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 14:20:15.223 UTC [1681] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 14:20:15.241 UTC [1682] LOG:  database system was shut down at 2022-11-08 14:20:14 UTC
+2022-11-08 14:20:15.260 UTC [1681] LOG:  database system is ready to accept connections
+2022-11-08 16:03:48.855 UTC [2789] ERROR:  syntax error at or near "owner" at character 32
+2022-11-08 16:03:48.855 UTC [2789] STATEMENT:  create role chirpstack_as with owner chirpstack_as;
+2022-11-08 16:04:27.127 UTC [2789] ERROR:  syntax error at or near "owner" at character 32
+2022-11-08 16:04:27.127 UTC [2789] STATEMENT:  create role chirpstack_as with owner chirpstack_as;
+2022-11-08 16:05:26.727 UTC [2794] ERROR:  syntax error at or near "extensionpg_trgm" at character 8
+2022-11-08 16:05:26.727 UTC [2794] STATEMENT:  create extensionpg_trgm
+	;
+2022-11-08 16:07:19.549 UTC [2839] FATAL:  role "root" does not exist
+2022-11-08 16:07:21.559 UTC [2840] FATAL:  role "root" does not exist
+2022-11-08 16:07:23.569 UTC [2841] FATAL:  role "root" does not exist
+2022-11-08 16:07:25.579 UTC [2842] FATAL:  role "root" does not exist
+2022-11-08 16:07:27.589 UTC [2843] FATAL:  role "root" does not exist
+2022-11-08 16:07:29.599 UTC [2844] FATAL:  role "root" does not exist
+2022-11-08 16:08:47.397 UTC [2855] FATAL:  role "chirpstack_as" is not permitted to log in
+2022-11-08 16:08:49.407 UTC [2856] FATAL:  role "chirpstack_as" is not permitted to log in
+2022-11-08 16:08:51.417 UTC [2857] FATAL:  role "chirpstack_as" is not permitted to log in
+2022-11-08 16:10:25.449 UTC [2923] FATAL:  role "chirpstack_as" is not permitted to log in
+2022-11-08 16:10:27.462 UTC [2924] FATAL:  role "chirpstack_as" is not permitted to log in
+2022-11-08 16:10:29.472 UTC [2925] FATAL:  role "chirpstack_as" is not permitted to log in
+2022-11-08 16:10:31.482 UTC [2926] FATAL:  role "chirpstack_as" is not permitted to log in
+2022-11-08 16:10:33.492 UTC [2927] FATAL:  role "chirpstack_as" is not permitted to log in
+2022-11-08 16:12:52.502 UTC [2943] ERROR:  role "chirpstack_as" already exists
+2022-11-08 16:12:52.502 UTC [2943] STATEMENT:  create role chirpstack_as with login password 'chirpstack_as';
+2022-11-08 16:13:23.729 UTC [2943] ERROR:  syntax error at or near "add" at character 1
+2022-11-08 16:13:23.729 UTC [2943] STATEMENT:  add login password 'chirpstack_as';
+2022-11-08 16:13:28.588 UTC [2943] ERROR:  syntax error at or near "login" at character 1
+2022-11-08 16:13:28.588 UTC [2943] STATEMENT:  login password 'chirpstack_as';
+2022-11-08 16:15:01.904 UTC [1681] LOG:  received fast shutdown request
+2022-11-08 16:15:01.936 UTC [1681] LOG:  aborting any active transactions
+2022-11-08 16:15:01.937 UTC [2690] FATAL:  terminating connection due to administrator command
+2022-11-08 16:15:01.937 UTC [2689] FATAL:  terminating connection due to administrator command
+2022-11-08 16:15:01.941 UTC [2686] FATAL:  terminating connection due to administrator command
+2022-11-08 16:15:01.945 UTC [2688] FATAL:  terminating connection due to administrator command
+2022-11-08 16:15:01.953 UTC [2687] FATAL:  terminating connection due to administrator command
+2022-11-08 16:15:01.965 UTC [1681] LOG:  background worker "logical replication launcher" (PID 1688) exited with exit code 1
+2022-11-08 16:15:01.977 UTC [1683] LOG:  shutting down
+2022-11-08 16:15:02.108 UTC [1681] LOG:  database system is shut down
+2022-11-08 16:15:02.348 UTC [2961] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 16:15:02.349 UTC [2961] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 16:15:02.349 UTC [2961] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 16:15:02.357 UTC [2961] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 16:15:02.376 UTC [2962] LOG:  database system was shut down at 2022-11-08 16:15:02 UTC
+2022-11-08 16:15:02.399 UTC [2961] LOG:  database system is ready to accept connections
+2022-11-08 16:15:48.223 UTC [2978] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:15:48.223 UTC [2978] STATEMENT:  lock table code_migration
+2022-11-08 16:15:48.225 UTC [2978] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:15:48.225 UTC [2978] STATEMENT:  lock table code_migration
+2022-11-08 16:15:53.013 UTC [2978] ERROR:  type "hstore" does not exist at character 45
+2022-11-08 16:15:53.013 UTC [2978] STATEMENT:  alter table device
+	    add column variables hstore,
+	    add column tags hstore;
+	
+	create index idx_device_tags on device(tags);
+2022-11-08 16:16:55.651 UTC [2988] FATAL:  database "chirpstack_ad" does not exist
+2022-11-08 16:17:10.927 UTC [2990] ERROR:  syntax error at or near "c" at character 1
+2022-11-08 16:17:10.927 UTC [2990] STATEMENT:  c
+	add column variables hstore,
+	    add column tags hstore;
+2022-11-08 16:17:26.549 UTC [2990] ERROR:  syntax error at or near "add" at character 1
+2022-11-08 16:17:26.549 UTC [2990] STATEMENT:  add column variables hstore, add column tags hstore;
+2022-11-08 16:18:44.590 UTC [2961] LOG:  received fast shutdown request
+2022-11-08 16:18:44.599 UTC [2961] LOG:  aborting any active transactions
+2022-11-08 16:18:44.599 UTC [2987] FATAL:  terminating connection due to administrator command
+2022-11-08 16:18:44.599 UTC [2969] FATAL:  terminating connection due to administrator command
+2022-11-08 16:18:44.624 UTC [2961] LOG:  background worker "logical replication launcher" (PID 2968) exited with exit code 1
+2022-11-08 16:18:44.626 UTC [2963] LOG:  shutting down
+2022-11-08 16:18:44.734 UTC [3000] FATAL:  the database system is shutting down
+2022-11-08 16:18:44.740 UTC [3001] FATAL:  the database system is shutting down
+2022-11-08 16:18:44.880 UTC [3002] FATAL:  the database system is shutting down
+2022-11-08 16:18:44.885 UTC [3003] FATAL:  the database system is shutting down
+2022-11-08 16:18:45.462 UTC [2961] LOG:  database system is shut down
+2022-11-08 16:18:45.648 UTC [3006] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 16:18:45.649 UTC [3006] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 16:18:45.649 UTC [3006] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 16:18:45.657 UTC [3006] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 16:18:45.677 UTC [3007] LOG:  database system was shut down at 2022-11-08 16:18:45 UTC
+2022-11-08 16:18:45.701 UTC [3006] LOG:  database system is ready to accept connections
+2022-11-08 16:18:50.411 UTC [3020] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:18:50.411 UTC [3020] STATEMENT:  lock table code_migration
+2022-11-08 16:18:50.413 UTC [3020] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:18:50.413 UTC [3020] STATEMENT:  lock table code_migration
+2022-11-08 16:19:58.680 UTC [3033] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:19:58.680 UTC [3033] STATEMENT:  lock table code_migration
+2022-11-08 16:19:58.682 UTC [3033] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:19:58.682 UTC [3033] STATEMENT:  lock table code_migration
+2022-11-08 16:21:04.537 UTC [3042] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:21:04.537 UTC [3042] STATEMENT:  lock table code_migration
+2022-11-08 16:21:04.538 UTC [3042] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:21:04.538 UTC [3042] STATEMENT:  lock table code_migration
+2022-11-08 16:21:58.029 UTC [3006] LOG:  received fast shutdown request
+2022-11-08 16:21:58.037 UTC [3006] LOG:  aborting any active transactions
+2022-11-08 16:21:58.038 UTC [3015] FATAL:  terminating connection due to administrator command
+2022-11-08 16:21:58.038 UTC [3014] FATAL:  terminating connection due to administrator command
+2022-11-08 16:21:58.059 UTC [3006] LOG:  background worker "logical replication launcher" (PID 3013) exited with exit code 1
+2022-11-08 16:21:58.060 UTC [3008] LOG:  shutting down
+2022-11-08 16:21:58.136 UTC [3006] LOG:  database system is shut down
+2022-11-08 16:21:58.373 UTC [3051] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 16:21:58.374 UTC [3051] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 16:21:58.374 UTC [3051] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 16:21:58.382 UTC [3051] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 16:21:58.401 UTC [3052] LOG:  database system was shut down at 2022-11-08 16:21:58 UTC
+2022-11-08 16:21:58.434 UTC [3051] LOG:  database system is ready to accept connections
+2022-11-08 16:22:00.955 UTC [3067] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:22:00.955 UTC [3067] STATEMENT:  lock table code_migration
+2022-11-08 16:22:00.956 UTC [3067] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:22:00.956 UTC [3067] STATEMENT:  lock table code_migration
+2022-11-08 16:24:26.393 UTC [3085] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:24:26.393 UTC [3085] STATEMENT:  lock table code_migration
+2022-11-08 16:24:26.395 UTC [3085] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:24:26.395 UTC [3085] STATEMENT:  lock table code_migration
+2022-11-08 16:25:52.207 UTC [3098] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:25:52.207 UTC [3098] STATEMENT:  lock table code_migration
+2022-11-08 16:25:52.209 UTC [3098] ERROR:  relation "code_migration" does not exist
+2022-11-08 16:25:52.209 UTC [3098] STATEMENT:  lock table code_migration
+2022-11-08 16:25:52.686 UTC [3098] ERROR:  index "idx_device_tags" does not exist
+2022-11-08 16:25:52.686 UTC [3098] STATEMENT:  drop index idx_device_tags;
+	create index idx_device_tags on device using gin (tags);
+2022-11-08 16:26:17.426 UTC [3051] LOG:  received fast shutdown request
+2022-11-08 16:26:17.434 UTC [3051] LOG:  aborting any active transactions
+2022-11-08 16:26:17.434 UTC [3061] FATAL:  terminating connection due to administrator command
+2022-11-08 16:26:17.439 UTC [3060] FATAL:  terminating connection due to administrator command
+2022-11-08 16:26:17.451 UTC [3051] LOG:  background worker "logical replication launcher" (PID 3058) exited with exit code 1
+2022-11-08 16:26:17.464 UTC [3053] LOG:  shutting down
+2022-11-08 16:26:17.665 UTC [3051] LOG:  database system is shut down
+2022-11-08 16:26:17.870 UTC [3106] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 16:26:17.871 UTC [3106] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 16:26:17.872 UTC [3106] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 16:26:17.879 UTC [3106] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 16:26:17.898 UTC [3107] LOG:  database system was shut down at 2022-11-08 16:26:17 UTC
+2022-11-08 16:26:17.924 UTC [3106] LOG:  database system is ready to accept connections
+2022-11-08 16:26:20.449 UTC [3119] ERROR:  relation "gorp_migrations" does not exist at character 27
+2022-11-08 16:26:20.449 UTC [3119] STATEMENT:  
+			select
+				id
+			from
+				gorp_migrations
+			order by
+				applied_at desc
+			limit 1
+		
+2022-11-08 16:27:31.540 UTC [3106] LOG:  received fast shutdown request
+2022-11-08 16:27:31.549 UTC [3106] LOG:  aborting any active transactions
+2022-11-08 16:27:31.549 UTC [3114] FATAL:  terminating connection due to administrator command
+2022-11-08 16:27:31.568 UTC [3106] LOG:  background worker "logical replication launcher" (PID 3113) exited with exit code 1
+2022-11-08 16:27:31.568 UTC [3108] LOG:  shutting down
+2022-11-08 16:27:31.676 UTC [3106] LOG:  database system is shut down
+2022-11-08 16:27:31.888 UTC [3132] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 16:27:31.890 UTC [3132] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 16:27:31.890 UTC [3132] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 16:27:31.898 UTC [3132] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 16:27:31.918 UTC [3133] LOG:  database system was shut down at 2022-11-08 16:27:31 UTC
+2022-11-08 16:27:31.942 UTC [3132] LOG:  database system is ready to accept connections
+2022-11-08 16:27:36.719 UTC [3148] LOG:  could not receive data from client: Connection reset by peer
+2022-11-08 16:27:36.719 UTC [3148] LOG:  unexpected EOF on client connection with an open transaction
+2022-11-08 16:30:12.854 UTC [3163] LOG:  unexpected EOF on client connection with an open transaction
+2022-11-08 16:31:06.315 UTC [3176] LOG:  unexpected EOF on client connection with an open transaction
+2022-11-08 16:32:37.662 UTC [3190] LOG:  unexpected EOF on client connection with an open transaction
+2022-11-08 16:59:39.830 UTC [3409] ERROR:  insert or update on table "service_profile" violates foreign key constraint "service_profile_network_server_id_fkey"
+2022-11-08 16:59:39.830 UTC [3409] DETAIL:  Key (network_server_id)=(0) is not present in table "network_server".
+2022-11-08 16:59:39.830 UTC [3409] STATEMENT:  
+			insert into service_profile (
+				service_profile_id,
+				network_server_id,
+				organization_id,
+				created_at,
+				updated_at,
+				name
+			) values ($1, $2, $3, $4, $5, $6)
+2022-11-08 16:59:55.789 UTC [3409] ERROR:  insert or update on table "service_profile" violates foreign key constraint "service_profile_network_server_id_fkey"
+2022-11-08 16:59:55.789 UTC [3409] DETAIL:  Key (network_server_id)=(0) is not present in table "network_server".
+2022-11-08 16:59:55.789 UTC [3409] STATEMENT:  
+			insert into service_profile (
+				service_profile_id,
+				network_server_id,
+				organization_id,
+				created_at,
+				updated_at,
+				name
+			) values ($1, $2, $3, $4, $5, $6)
+2022-11-08 14:02:21.185 UTC [1407] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 14:02:21.187 UTC [1407] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 14:02:21.187 UTC [1407] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 14:02:21.191 UTC [1407] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 14:02:21.239 UTC [1408] LOG:  database system was interrupted; last known up at 2022-11-08 17:12:32 UTC
+2022-11-08 14:02:21.441 UTC [1408] LOG:  database system was not properly shut down; automatic recovery in progress
+2022-11-08 14:02:21.456 UTC [1408] LOG:  redo starts at 0/1BD71F8
+2022-11-08 14:02:21.456 UTC [1408] LOG:  invalid record length at 0/1BD72E0: wanted 24, got 0
+2022-11-08 14:02:21.456 UTC [1408] LOG:  redo done at 0/1BD72A8 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2022-11-08 14:02:21.523 UTC [1407] LOG:  database system is ready to accept connections
+2022-11-08 14:01:34.347 UTC [1362] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 14:01:34.349 UTC [1362] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 14:01:34.349 UTC [1362] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 14:01:34.355 UTC [1362] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 14:01:34.401 UTC [1363] LOG:  database system was interrupted; last known up at 2022-11-08 14:02:21 UTC
+2022-11-08 14:01:34.599 UTC [1363] LOG:  database system was not properly shut down; automatic recovery in progress
+2022-11-08 14:01:34.615 UTC [1363] LOG:  redo starts at 0/1BD7358
+2022-11-08 14:01:34.615 UTC [1363] LOG:  invalid record length at 0/1BD7390: wanted 24, got 0
+2022-11-08 14:01:34.615 UTC [1363] LOG:  redo done at 0/1BD7358 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2022-11-08 14:01:34.682 UTC [1362] LOG:  database system is ready to accept connections
+2025-08-12 17:11:07.488 UTC [1616] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2025-08-12 17:11:07.490 UTC [1616] LOG:  listening on IPv6 address "::1", port 5432
+2025-08-12 17:11:07.490 UTC [1616] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2025-08-12 17:11:07.493 UTC [1616] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2025-08-12 17:11:07.536 UTC [1617] LOG:  database system was interrupted; last known up at 2022-11-08 14:01:34 UTC
+2025-08-12 17:11:07.736 UTC [1617] LOG:  database system was not properly shut down; automatic recovery in progress
+2025-08-12 17:11:07.750 UTC [1617] LOG:  redo starts at 0/1BD7408
+2025-08-12 17:11:07.750 UTC [1617] LOG:  invalid record length at 0/1BD7440: wanted 24, got 0
+2025-08-12 17:11:07.750 UTC [1617] LOG:  redo done at 0/1BD7408 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2025-08-12 17:11:07.818 UTC [1616] LOG:  database system is ready to accept connections
+2022-11-08 14:10:41.189 UTC [1695] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 14:10:41.194 UTC [1695] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 14:10:41.194 UTC [1695] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 14:10:41.199 UTC [1695] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 14:10:41.219 UTC [1696] LOG:  database system was interrupted; last known up at 2025-08-12 20:01:11 UTC
+2022-11-08 14:10:41.403 UTC [1696] LOG:  database system was not properly shut down; automatic recovery in progress
+2022-11-08 14:10:41.417 UTC [1696] LOG:  redo starts at 0/1BF2C08
+2022-11-08 14:10:41.417 UTC [1696] LOG:  invalid record length at 0/1BF2CF0: wanted 24, got 0
+2022-11-08 14:10:41.417 UTC [1696] LOG:  redo done at 0/1BF2CB8 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2022-11-08 14:10:41.486 UTC [1695] LOG:  database system is ready to accept connections
+2022-11-08 15:07:05.381 UTC [1935] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 15:07:05.383 UTC [1935] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 15:07:05.383 UTC [1935] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 15:07:05.387 UTC [1935] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 15:07:05.430 UTC [1936] LOG:  database system was interrupted; last known up at 2022-11-08 14:45:42 UTC
+2022-11-08 15:07:05.621 UTC [1936] LOG:  database system was not properly shut down; automatic recovery in progress
+2022-11-08 15:07:05.635 UTC [1936] LOG:  redo starts at 0/1BF62B0
+2022-11-08 15:07:05.635 UTC [1936] LOG:  invalid record length at 0/1BF6398: wanted 24, got 0
+2022-11-08 15:07:05.636 UTC [1936] LOG:  redo done at 0/1BF6360 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2022-11-08 15:07:05.702 UTC [1935] LOG:  database system is ready to accept connections
+2022-11-08 14:04:43.884 UTC [1470] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 14:04:43.886 UTC [1470] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 14:04:43.886 UTC [1470] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 14:04:43.891 UTC [1470] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 14:04:43.937 UTC [1471] LOG:  database system was interrupted; last known up at 2022-11-08 15:17:06 UTC
+2022-11-08 14:04:44.137 UTC [1471] LOG:  database system was not properly shut down; automatic recovery in progress
+2022-11-08 14:04:44.152 UTC [1471] LOG:  redo starts at 0/1BF7520
+2022-11-08 14:04:44.152 UTC [1471] LOG:  invalid record length at 0/1BF7608: wanted 24, got 0
+2022-11-08 14:04:44.152 UTC [1471] LOG:  redo done at 0/1BF75D0 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2022-11-08 14:04:44.211 UTC [1470] LOG:  database system is ready to accept connections
+2022-11-08 14:50:38.343 UTC [1470] LOG:  received fast shutdown request
+2022-11-08 14:50:38.354 UTC [1470] LOG:  aborting any active transactions
+2022-11-08 14:50:38.383 UTC [1470] LOG:  background worker "logical replication launcher" (PID 1477) exited with exit code 1
+2022-11-08 14:50:38.384 UTC [1472] LOG:  shutting down
+2022-11-08 14:50:38.455 UTC [1470] LOG:  database system is shut down
+2022-11-08 14:01:09.268 UTC [1365] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 14:01:09.270 UTC [1365] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 14:01:09.270 UTC [1365] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 14:01:09.274 UTC [1365] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 14:01:09.324 UTC [1366] LOG:  database system was shut down at 2022-11-08 14:50:38 UTC
+2022-11-08 14:01:09.358 UTC [1365] LOG:  database system is ready to accept connections
+2022-11-08 15:10:52.287 UTC [2917] ERROR:  duplicate key value violates unique constraint "gateway_pkey"
+2022-11-08 15:10:52.287 UTC [2917] DETAIL:  Key (gateway_id)=(\x0016c001ff101573) already exists.
+2022-11-08 15:10:52.287 UTC [2917] STATEMENT:  INSERT INTO "gateway" ("gateway_id", "tenant_id", "created_at", "updated_at", "last_seen_at", "name", "description", "latitude", "longitude", "altitude", "stats_interval_secs", "tls_certificate", "tags", "properties") VALUES ($1, $2, $3, $4, DEFAULT, $5, $6, $7, $8, $9, $10, DEFAULT, $11, $12) RETURNING "gateway"."gateway_id", "gateway"."tenant_id", "gateway"."created_at", "gateway"."updated_at", "gateway"."last_seen_at", "gateway"."name", "gateway"."description", "gateway"."latitude", "gateway"."longitude", "gateway"."altitude", "gateway"."stats_interval_secs", "gateway"."tls_certificate", "gateway"."tags", "gateway"."properties"
+2022-11-08 15:10:58.400 UTC [2917] ERROR:  duplicate key value violates unique constraint "gateway_pkey"
+2022-11-08 15:10:58.400 UTC [2917] DETAIL:  Key (gateway_id)=(\x0016c001ff101573) already exists.
+2022-11-08 15:10:58.400 UTC [2917] STATEMENT:  INSERT INTO "gateway" ("gateway_id", "tenant_id", "created_at", "updated_at", "last_seen_at", "name", "description", "latitude", "longitude", "altitude", "stats_interval_secs", "tls_certificate", "tags", "properties") VALUES ($1, $2, $3, $4, DEFAULT, $5, $6, $7, $8, $9, $10, DEFAULT, $11, $12) RETURNING "gateway"."gateway_id", "gateway"."tenant_id", "gateway"."created_at", "gateway"."updated_at", "gateway"."last_seen_at", "gateway"."name", "gateway"."description", "gateway"."latitude", "gateway"."longitude", "gateway"."altitude", "gateway"."stats_interval_secs", "gateway"."tls_certificate", "gateway"."tags", "gateway"."properties"
+2022-11-08 15:42:41.609 UTC [3349] LOG:  could not receive data from client: Connection reset by peer
+2022-11-08 14:11:02.283 UTC [1470] LOG:  starting PostgreSQL 14.5 on arm-gomspace-linux-gnueabi, compiled by arm-gomspace-linux-gnueabi-gcc (GCC) 12.2.0, 32-bit
+2022-11-08 14:11:02.285 UTC [1470] LOG:  listening on IPv6 address "::1", port 5432
+2022-11-08 14:11:02.285 UTC [1470] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2022-11-08 14:11:02.289 UTC [1470] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2022-11-08 14:11:02.396 UTC [1471] LOG:  database system was interrupted; last known up at 2022-11-08 15:36:11 UTC
+2022-11-08 14:11:02.657 UTC [1471] LOG:  database system was not properly shut down; automatic recovery in progress
+2022-11-08 14:11:02.700 UTC [1471] LOG:  redo starts at 0/1C15818
+2022-11-08 14:11:02.704 UTC [1471] LOG:  invalid record length at 0/1C17F48: wanted 24, got 0
+2022-11-08 14:11:02.704 UTC [1471] LOG:  redo done at 0/1C17F10 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2022-11-08 14:11:02.785 UTC [1470] LOG:  database system is ready to accept connections
